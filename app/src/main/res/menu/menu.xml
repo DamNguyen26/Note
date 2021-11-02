@@ -6,8 +6,9 @@
 
     <item
         android:id="@+id/addRecord"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_launcher_foreground"
         android:orderInCategory="100"
         android:title="Add item"
         app:showAsAction="always"/>
+
 </menu>

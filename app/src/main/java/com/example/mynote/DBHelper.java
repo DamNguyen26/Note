@@ -6,28 +6,29 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String tblName = "Notes";
     static final String dbName = "MyDB";
     static final int dbVersion = 1;
-
-    public static final String id = "id";
-    public static final String subject = "subject";
-    public static final String desc = "description";
-
-    private static final String createTBL = "create table " +tblName+ "(" +id+ " integer primary key autoincrement, " +subject+ " text not null, " +desc+ "text);";
 
     public DBHelper(Context context){
         super(context, dbName, null, dbVersion);
     }
 
+    public static final String tblName = "notes";
+    public static final String ID = "id";
+    public static final String IMPORTANT = "quantrong";
+    public static final String DESC = "noidung";
+    public static final String DATE = "ngaytao";
+
+//    CREATE TABLE Notes ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT );
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String createTBL = "CREATE TABLE '" +tblName+ "' ( '" +ID+ "' INTEGER PRIMARY KEY AUTOINCREMENT , '" +IMPORTANT+ "' TEXT , '" +DESC+ "' TEXT NOT NULL , '" +DATE+ "' TEXT NOT NULL ); ";
         db.execSQL(createTBL);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists " +tblName);
+        db.execSQL("DROP TABLE IF EXISTS " + tblName);
         onCreate(db);
     }
 }

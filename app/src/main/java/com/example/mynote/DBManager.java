@@ -5,17 +5,17 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-public class dbManager {
+public class DBManager {
+
     private DBHelper dbHelper;
     private Context context;
     private SQLiteDatabase db;
 
-    public dbManager(Context c){
+    public DBManager(Context c){
         context = c;
     }
-    public dbManager open() throws SQLException{
+    public DBManager open() throws SQLException{
         dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
         return this;
@@ -23,29 +23,29 @@ public class dbManager {
     public void close(){
         dbHelper.close();
     }
-    public void insert(String name, String desc){
+    public void insert(String noidung, String ngaytao){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DBHelper.subject, name);
-        contentValues.put(DBHelper.desc, name);
+        contentValues.put(DBHelper.DESC, noidung);
+        contentValues.put(DBHelper.DATE, ngaytao);
         db.insert(DBHelper.tblName, null, contentValues);
     }
     public Cursor fetch(){
-        String[] columns = new String[]{DBHelper.id, DBHelper.subject, DBHelper.desc};
+        String[] columns = new String[]{DBHelper.ID, DBHelper.DESC, DBHelper.DATE};
         Cursor cursor = db.query(DBHelper.tblName, columns, null,null, null, null, null);
         if(cursor != null){
             cursor.moveToFirst();
         }
         return cursor;
     }
-    public int update(long id, String name, String desc){
+    public int update(long id, String noidung, String ngaytao){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DBHelper.subject, name);
-        contentValues.put(DBHelper.desc, name);
+        contentValues.put(DBHelper.DESC, noidung);
+        contentValues.put(DBHelper.DATE, ngaytao);
 
-        int i = db.update(DBHelper.tblName, contentValues, DBHelper.id + " = " + id, null);
+        int i = db.update(DBHelper.tblName, contentValues, DBHelper.ID + " = " + id, null);
         return i;
     }
     public void delete(long id){
-        db.delete(DBHelper.tblName, DBHelper.id + " = " + id, null);
+        db.delete(DBHelper.tblName, DBHelper.ID + " = " + id, null);
     }
 }
