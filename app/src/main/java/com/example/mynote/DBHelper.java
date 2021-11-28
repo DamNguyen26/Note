@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DESC = "noidung";
     public static final String DATE = "ngaytao";
 
-//    CREATE TABLE Notes ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT );
+//    CREATE TABLE Notes ( id INTEGER PRIMARY KEY AUTOINCREMENT,quantrong INTEGER NOT NULL, title TEXT NOT NULL, description TEXT );
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTBL = "CREATE TABLE '" +tblName+ "' ( '" +ID+ "' INTEGER PRIMARY KEY AUTOINCREMENT , '" +IMPORTANT+ "' TEXT , '" +DESC+ "' TEXT NOT NULL , '" +DATE+ "' TEXT)";
