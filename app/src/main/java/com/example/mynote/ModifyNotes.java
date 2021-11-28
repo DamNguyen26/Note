@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Date;
+
 public class ModifyNotes extends Activity implements View.OnClickListener {
 
     private EditText titleText;
@@ -47,8 +49,9 @@ public class ModifyNotes extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnUpdate:
+                Date date = java.util.Calendar.getInstance().getTime();
                 String title = titleText.getText().toString();
-                String desc = descText.getText().toString();
+                String desc = date.toString();
                 dbManager.update(_id,title,desc);
                 this.returnHome();
                 break;

@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
+import java.util.Date;
+
 public class addNote extends Activity implements View.OnClickListener {
 
     private Button addNote;
@@ -29,20 +31,28 @@ public class addNote extends Activity implements View.OnClickListener {
         dbManager = new DBManager(this);
         dbManager.open();
         addNote.setOnClickListener(this);
+        Button cancel = findViewById(R.id.btnCancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.addRecord:
+            case R.id.addRecord: {
+                Date date = java.util.Calendar.getInstance().getTime();
                 final String name = titleEditText.getText().toString();
-                final String desc = descEditText.getText().toString();
+                final String desc = date.toString();
 
                 dbManager.insert(name, desc);
 
                 Intent main = new Intent(addNote.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(main);
                 break;
+            }
         }
     }
 }
