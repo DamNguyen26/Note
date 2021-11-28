@@ -5,8 +5,7 @@
     tools:context="com.example.mynote.MainActivity">
 
     <item
-        android:id="@+id/addRecord"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:id="@+id/add_record"
         android:orderInCategory="100"
         android:title="Add item"
         app:showAsAction="always"/>

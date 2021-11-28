@@ -8,6 +8,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -63,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public boolean onCeateOptionMenu(Menu menu){
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.addRecord){
+        if(id == R.id.add_record){
             Intent addNew = new Intent(this, addNote.class);
             startActivity(addNew);
         }

@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public static final String tblName = "notes";
-    public static final String ID = "id";
+    public static final String ID = "_id";
     public static final String IMPORTANT = "quantrong";
     public static final String DESC = "noidung";
     public static final String DATE = "ngaytao";
@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //    CREATE TABLE Notes ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, description TEXT );
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTBL = "CREATE TABLE '" +tblName+ "' ( '" +ID+ "' INTEGER PRIMARY KEY AUTOINCREMENT , '" +IMPORTANT+ "' TEXT , '" +DESC+ "' TEXT NOT NULL , '" +DATE+ "' TEXT NOT NULL ); ";
+        String createTBL = "CREATE TABLE '" +tblName+ "' ( '" +ID+ "' INTEGER PRIMARY KEY AUTOINCREMENT , '" +IMPORTANT+ "' TEXT , '" +DESC+ "' TEXT NOT NULL , '" +DATE+ "' TEXT)";
         db.execSQL(createTBL);
     }
 

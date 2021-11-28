@@ -6,10 +6,9 @@
     <ListView
         android:id="@+id/listNotes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="660dp"
         android:dividerHeight="1dp"
-        android:padding="10dp">
-    </ListView>
+        android:padding="10dp"></ListView>
 
     <TextView
         android:layout_width="wrap_content"
