@@ -6,7 +6,6 @@
 
     <item
         android:id="@+id/add_record"
-        android:orderInCategory="100"
         android:title="Add item"
         app:showAsAction="always"/>
 
